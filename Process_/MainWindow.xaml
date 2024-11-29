@@ -1,0 +1,42 @@
+﻿<Window x:Class="SP_DZ2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SP_DZ2"
+        d:DataContext = "{d:DesignInstance local:MainProcessVM}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>        
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal"
+                        FlowDirection="RightToLeft">
+                <Button Content="Обновить" Command="{Binding RefreshProcessesCommand}"/>
+                <Button Content="Удалить" Command="{Binding CloseProcessCommand}"/>
+            </StackPanel>
+            <DataGrid ItemsSource="{Binding ProcessVMs}" SelectedItem="{Binding SelectedProcess}"
+                      AutoGenerateColumns="False" CanUserAddRows="False"
+                      CanUserDeleteRows="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="PID" Width="Auto"
+                                        Binding="{Binding Process.Id}"/>
+                    <DataGridTextColumn Header="Название" Width="*"
+                                        Binding="{Binding Process.ProcessName}"/>
+                    <DataGridTextColumn Header="Потребление памяти" Width="*">
+                        <DataGridTextColumn.Binding>
+                            <MultiBinding StringFormat="{}{0} {1}">
+                                <Binding Path = "Process.MemoryUsage"/>
+                                <Binding Source=" КБ"/>
+                            </MultiBinding>
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Колличество потоков" Width="*"
+                                        Binding="{Binding Process.ThreadCount}"/>
+                    <DataGridCheckBoxColumn Header="Отвечает или нет" Width="*"
+                                        Binding="{Binding Process.IsResponding}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+        
+    </Grid>
+</Window>
