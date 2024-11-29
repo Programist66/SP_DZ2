@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35506.116 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP_DZ2", "Process_\SP_DZ2.csproj", "{97F783BC-1437-494C-A443-40538CF9F23B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP_DZ2", "SP_DZ2\SP_DZ2.csproj", "{97F783BC-1437-494C-A443-40538CF9F23B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
