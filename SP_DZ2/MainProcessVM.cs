@@ -55,7 +55,7 @@ namespace SP_DZ2
                 if (existingProcess != null)
                 {
                     existingProcess.Process.ProcessName = process.ProcessName;
-                    existingProcess.Process.MemoryUsage = (process.PrivateMemorySize64 / 1024).ToString(); // Convert to MB
+                    existingProcess.Process.MemoryUsage = (process.PrivateMemorySize64 / 1024).ToString(); // Convert to KB
                     existingProcess.Process.ThreadCount = process.Threads.Count;
                     existingProcess.Process.IsResponding = process.Responding;
                 }
@@ -64,7 +64,7 @@ namespace SP_DZ2
                     ProcessVMs.Add(new ProcessVM(new ProcessInfo(process.Id)
                     {
                         ProcessName = process.ProcessName,
-                        MemoryUsage = (process.PrivateMemorySize64 / 1024).ToString(), // Convert to MB
+                        MemoryUsage = (process.PrivateMemorySize64 / 1024).ToString(), // Convert to KB
                         ThreadCount = process.Threads.Count,
                         IsResponding = process.Responding
                     }));
